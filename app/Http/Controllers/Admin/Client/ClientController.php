@@ -39,7 +39,6 @@ class ClientController extends Controller
     $validateData = $request->validate([
     		'name' => 'required|max:120',
     		'email' => 'required|max:50',
-    		'password' => 'required|min:6|max:50',
     		'pro_picture' => 'mimes:jpeg,jpg,png,PNG | max:1024',
     		'reg_form_pic' => 'mimes:jpeg,jpg,png,PNG | max:1024',
     		'nid_brth_pic' => 'mimes:jpeg,jpg,png,PNG | max:1024',
@@ -47,7 +46,7 @@ class ClientController extends Controller
     $data = array();
     $data['name'] = $request->name;
     $data['email'] = $request->email;
-    $data['password'] = Hash::make($request->password);
+    $data['password'] = Hash::make('123456');
     $data['phone'] = $request->phone;
     $data['gender'] = $request->gender;
     $data['date_of_birth'] = $request->date_of_birth;
@@ -133,23 +132,79 @@ class ClientController extends Controller
     $data['Client_type'] = $request->Client_type;
     $data['isp_pack_id'] = $request->isp_pack_id;
     $data['co_pack_id'] = $request->co_pack_id;
-    $data['status'] = 1;
 
+    $pro_picture = $request->file('pro_picture');
+    $nid_brth_pic = $request->file('nid_brth_pic');
+    $reg_form_pic = $request->file('reg_form_pic');
 
+    $old_pro_picture = $request->old_pro_picture;
+    $old_nid_brth_pic = $request->old_nid_brth_pic;
+    $old_reg_form_pic = $request->old_reg_form_pic;
 
+    if ($pro_picture) {
+      if ($old_pro_picture) {
+       unlink($old_pro_picture);
+      }
+    $pro_picture_name = hexdec(uniqid()).'.'.$pro_picture->getClientOriginalExtension();
+     Image::make($pro_picture)->resize(480,580)->save('public/media/clients/'.$pro_picture_name);
+     $data['pro_picture'] = 'public/media/clients/'.$pro_picture_name;
+    }
+    if ($nid_brth_pic) {
+      if ($old_nid_brth_pic) {
+        unlink($old_nid_brth_pic);
+      }
+      $nid_brth_pic_name = hexdec(uniqid()).'.'.$nid_brth_pic->getClientOriginalExtension();
+      Image::make($nid_brth_pic)->resize(480,580)->save('public/media/registrationForm/'.$nid_brth_pic_name);
+      $data['nid_brth_pic'] = 'public/media/registrationForm/'.$nid_brth_pic_name;
+    }
+    if ($reg_form_pic) {
+      if ($old_reg_form_pic) {
+       unlink($old_reg_form_pic);
+      }
+      $reg_form_pic_name = hexdec(uniqid()).'.'.$reg_form_pic->getClientOriginalExtension();
+      Image::make($reg_form_pic)->resize(480,580)->save('public/media/nidBirthCertificate/'.$reg_form_pic_name);
+      $data['reg_form_pic'] = 'public/media/nidBirthCertificate/'.$reg_form_pic_name;
+    }
     // return response()->json($data);  
-
-     
-
-    $product = DB::table('users')->where('id',$id)->update($data);
+    $update = DB::table('users')->where('id',$id)->update($data);
+     if ($update) {
       $notification=array(
-            'messege'=>'User Update Successfully',
+            'messege'=>'Client Successfully Updated',
             'alert-type'=>'success'
              );
            return Redirect()->route('clients')->with($notification);
- 
-  
+    }else{
+      $notification=array(
+            'messege'=>'Nothing TO Update',
+            'alert-type'=>'success'
+             );
+           return Redirect()->route('clients')->with($notification);
+    }
   }
 
+  public function inactive($id){
+    DB::table('users')->where('id',$id)->update(['status'=>0]);
+    $notification=array(
+            'messege'=>'User Successfully inactive',
+            'alert-type'=>'success'
+             );
+           return Redirect()->back()->with($notification);
+   }
+
+
+     public function active($id){
+    DB::table('users')->where('id',$id)->update(['status'=>1]);
+    $notification=array(
+            'messege'=>'User Successfully Active',
+            'alert-type'=>'success'
+             );
+           return Redirect()->back()->with($notification);
+   }
+
+   public function leftclient(){
+      $client = DB::table('users')->where('status',0)->get();
+      return view('admin.clients.left_clients',compact('client'));
+
+    }
 
 }

@@ -70,10 +70,17 @@
       <ul>
         <li><a href="{{route('create.clients')}}">Add New</a></li>
         <li><a href="{{route('clients')}}">Client List</a></li>
-        <li><a href="">Left Clients</a></li>
+        <li><a href="{{route('inactive.clients')}}">Left Clients</a></li>
         <li><a href="">Complain List</a></li>
         <li><a href="{{route('district')}}">DISTRICT</a></li>
         <li><a href="{{route('upazila_thana')}}">UPAZILA/THANA</a></li>
+      </ul>
+    </li>
+
+    <li class="submenu"> <a href="#"><i class="icon-user"></i> <span>Employees</span><span class="label label-important">2</span></a>
+      <ul>
+        <li><a href="{{route('create.employee')}}">Add Employee</a></li>
+        <li><a href="{{route('employee')}}">Employee List</a></li>
       </ul>
     </li>
 

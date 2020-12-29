@@ -211,6 +211,7 @@
               <label class="control-label">Profile Photo</label>
               <div class="controls">
                 <input type="file" id="file" name="pro_picture" onchange="readURL(this);">
+                <input type="hidden" name="old_pro_picture" value="{{ $client->pro_picture }}">
                 <img src="{{ URL::to($client->pro_picture) }}" id="one" style="height: 60px; width: 60px;">
             @error('pro_picture')
               <span class="invalid-feedback" role="alert">
@@ -224,6 +225,7 @@
               <label class="control-label">NID/Birth Certificate Photo</label>
               <div class="controls">
                 <input type="file" id="file" name="nid_brth_pic" onchange="readURL2(this);">
+                <input type="hidden" name="old_nid_brth_pic" value="{{ $client->nid_brth_pic }}">
                 <img src="{{ URL::to($client->nid_brth_pic) }}" id="two" style="height: 60px; width: 60px;">
               </div>
               @error('nid_brth_pic')
@@ -237,6 +239,7 @@
               <label class="control-label">Registration Form Photo</label>
               <div class="controls">
                 <input type="file" id="file" name="reg_form_pic" onchange="readURL3(this);">
+                <input type="hidden" name="old_reg_form_pic" value="{{ $client->reg_form_pic }}">
                 <img src="{{ URL::to($client->reg_form_pic) }}" id="three" style="height: 60px; width: 60px;">
               </div>
               @error('reg_form_pic')

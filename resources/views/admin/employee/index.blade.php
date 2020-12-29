@@ -15,40 +15,30 @@
       <div class="span12">
         <div class="widget-box">
           <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
-            <h5>Client table</h5>
-            <a href="{{route('create.clients')}}" class="btn btn-success" style="float: right; margin-bottom: 20px; margin-top: 2.5px; margin-right: 8px;">Add New Client</a>
+            <h5>Employee table</h5>
+            <a href="{{route('create.employee')}}" class="btn btn-success" style="float: right; margin-bottom: 20px; margin-top: 2.5px; margin-right: 8px;">Add New Emplotee</a>
           </div>
           <div class="widget-content nopadding">
             <table class="table table-bordered data-table">
               <thead>
                 <tr>
                   <th>Serial No.</th>
-                  <th>Client Name</th>
+                  <th>Employee Name</th>
                   <th>Phone No.</th>
                   <th>Email Address</th>
-                  <th>Type</th>
+                  <th>Salary</th>
                   <th>Status</th>
                   <th>Action</th>
                 </tr>
               </thead>
               <tbody>
-                @foreach($client as $key=>$row)
+                @foreach($employees as $key=>$row)
                 <tr class="gradeX">
                   <td>{{ $key +1 }}</td>
                   <td style="text-align: center;">{{ $row->name }}</td>
                   <td style="text-align: center;">{{ $row->phone }}</td>
                   <td style="text-align: center;">{{ $row->email }}</td>
-                  
-                  @if($row->Client_type == 1)
-                  <td style="text-align: center;">ISP</td>
-                  @elseif($row->Client_type == 2)
-                  <td style="text-align: center;">Cable TV</td>
-                  @elseif($row->Client_type == 3)
-                  <td style="text-align: center;">Both Service</td>
-                  @else
-                  <td style="text-align: center;"></td>
-                  @endif
-
+                  <td style="text-align: center;">{{ $row->salary }}</td>
                   @if($row->status == 1)
                   <td style="text-align: center;">Active</td>
                   @elseif($row->status == 0)
@@ -56,13 +46,12 @@
                    @else
                   <td style="text-align: center;"></td>
                   @endif
-
                   <td style="text-align: center;">
-                    <a href="{{ URL::to('admin/client/edit/'.$row->id) }} " class="btn btn-sm btn-info">Edit</a>
+                    <a href="{{ route('edit.employee',$row->id) }} " class="btn btn-sm btn-info">Edit</a>
                     @if($row->status == 1)
-                    <a href="{{ URL::to('admin/client/inactive/'.$row->id) }}" class="btn btn-sm btn-danger" title="Inactive" ><i>Inactive</i></a>
+                    <a href="{{ route('inactive.employee',$row->id) }}" class="btn btn-sm btn-danger" title="Inactive" ><i>Inactive</i></a>
                     @else
-                    <a href="{{ URL::to('admin/client/active/'.$row->id) }}" class="btn btn-sm btn-primary" title="Active" ><i>Active</i></a>
+                    <a href="{{ route('active.employee',$row->id) }}" class="btn btn-sm btn-primary" title="Active" ><i>Active</i></a>
                     @endif
                   </td>
                 </tr>

@@ -35,7 +35,6 @@
             @enderror
             </div>
 
-
             <div class="control-group">
               <label class="control-label">Email :</label>
               <div class="controls">
@@ -47,18 +46,14 @@
               </span>
             @enderror
             </div>
+
+            
             <div class="control-group">
               <label class="control-label">Password :</label>
               <div class="controls">
-                <input type="password" class="span11" name="password" placeholder="Enter here..." autocomplete="off" />
+                <label style="font-weight: bold; padding-top: 5px;">123456</label>
               </div>
-              @error('password')
-                <span class="invalid-feedback" role="alert">
-                    <strong style="padding-left: 50px; color: red;">{{ $message }}</strong>
-                </span>
-            @enderror
             </div>
-            
 
             <div class="control-group">
               <label class="control-label">Phone :</label>

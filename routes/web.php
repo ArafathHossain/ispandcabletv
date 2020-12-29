@@ -76,7 +76,22 @@ Route::prefix('admin/client')->group(function(){
 	Route::get('/delete/{id}', 'Admin\client\ClientController@Delete');
 	Route::get('/edit/{id}', 'Admin\client\ClientController@Edit');
 	Route::post('/update/{id}', 'Admin\client\ClientController@Update');
+	Route::get('inactive/{id}', 'Admin\client\ClientController@inactive');
+	Route::get('active/{id}', 'Admin\client\ClientController@active');
+	Route::get('/inactive', 'Admin\client\ClientController@leftclient')->name('inactive.clients');
 });
 
- // For Show Upazila and Thana with ajax
+// For Show Upazila and Thana with ajax
 Route::get('get/upazila-thana/{district_id}', 'Admin\client\ClientController@GetUpazilaThana');
+
+Route::prefix('admin/employee')->group(function(){
+	Route::get('/all', 'Admin\employees\EmployeeController@index')->name('employee');
+	Route::get('/create', 'Admin\employees\EmployeeController@create')->name('create.employee');
+	Route::post('/store', 'Admin\employees\EmployeeController@store')->name('store.employee');
+	Route::get('/edit/{id}', 'Admin\employees\EmployeeController@Edit')->name('edit.employee','$id');
+	Route::post('/update/{id}', 'Admin\employees\EmployeeController@Update')->name('update.employee','$id');
+	Route::get('inactive/{id}', 'Admin\employees\EmployeeController@inactive')->name('inactive.employee','$id');
+	Route::get('active/{id}', 'Admin\employees\EmployeeController@active')->name('active.employee','$id');
+});
+
+ 

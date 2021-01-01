@@ -13,10 +13,16 @@
 <link rel="stylesheet" href="{{asset('public/backend/css/jquery.gritter.css')}}" />
 <link rel="stylesheet" href="{{asset('public/backend/css/datepicker.css')}}" />
 
+
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
 <!-- chart -->
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">
 <!-- <link rel="stylesheet" href="assets/plugins/chartjs-bar-chart/chart.css"> -->
+<style type="text/css">
+   .respons-table {
+   overflow-x: scroll; width: 100%;
+  }
+</style>
 </head>
 <body>
 
@@ -57,7 +63,7 @@
 <!--sidebar-menu-->
 <div id="sidebar"><a href="#" class="visible-phone"><i class="icon icon-home"></i> Dashboard</a>
   <ul>
-    <li class="active"><a href="{{url('admin/home')}}"><i class="icon icon-home"></i> <span>Dashboard</span></a> </li>
+    <li ><a href="{{url('admin/home')}}"><i class="icon icon-home"></i> <span>Dashboard</span></a> </li>
     <!-- <li> <a href="charts.html"><i class="icon icon-signal"></i> <span>Charts &amp; graphs</span></a> </li> -->
     <li class="submenu"> <a href="#"><i class=" icon-globe"></i> <span>Aria</span><span class="label label-important">2</span></a>
       <ul>
@@ -81,6 +87,14 @@
       <ul>
         <li><a href="{{route('create.employee')}}">Add Employee</a></li>
         <li><a href="{{route('employee')}}">Employee List</a></li>
+      </ul>
+    </li>
+
+    <li class="submenu"> <a href="#"><i class="icon-credit-card"></i> <span>Salary</span><span class="label label-important">1</span></a>
+      <ul>
+        <li><a href="{{route('salary')}}">Pay Salary</a></li>
+        <li><a href="{{route('alldue.salary')}}">Due Salary</a></li>
+        <li><a href="{{route('transactions.salary')}}">Transactions</a></li>
       </ul>
     </li>
 

@@ -94,4 +94,19 @@ Route::prefix('admin/employee')->group(function(){
 	Route::get('active/{id}', 'Admin\employees\EmployeeController@active')->name('active.employee','$id');
 });
 
+Route::prefix('admin/salary')->group(function(){
+	Route::get('/all', 'Admin\salary\SalaryController@index')->name('salary');
+	Route::get('/create/{id}', 'Admin\salary\SalaryController@create')->name('create.salary','$id');
+	Route::post('/store', 'Admin\salary\SalaryController@store')->name('store.salary');
+	Route::get('/due/{id}', 'Admin\salary\SalaryController@due')->name('due.salary','$id');
+	Route::get('/paydue/{id}', 'Admin\salary\SalaryController@paydue')->name('paydue.salary','$id');
+	Route::get('/edit/{id}', 'Admin\salary\SalaryController@Edit')->name('edit.salary','$id');
+	Route::post('/duestore/{id}', 'Admin\salary\SalaryController@duestore')->name('duestore.salary','$id');
+});
+Route::prefix('admin/transactions')->group(function(){
+	Route::get('/all', 'Admin\salary\SalaryController@AllTransactions')->name('transactions.salary');
+	Route::get('/alldue', 'Admin\salary\SalaryController@alldue')->name('alldue.salary');
+	Route::get('/invoice/{id}', 'Admin\salary\SalaryController@invoice')->name('invoice.payment','$id');
+});
+
  

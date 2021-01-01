@@ -18,7 +18,7 @@
         <div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
           <h5>District</h5>
         </div>
-        <div class="widget-content nopadding">
+        <div class="widget-content nopadding respons-table">
           <form action="{{ route('update.employee',$employee->id) }}" method="post" class="form-horizontal" enctype="multipart/form-data" >    
             @csrf
             <div class="control-group">

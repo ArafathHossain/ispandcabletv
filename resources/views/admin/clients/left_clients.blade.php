@@ -18,7 +18,7 @@
             <h5>Client table</h5>
             <a href="{{route('create.clients')}}" class="btn btn-success" style="float: right; margin-bottom: 20px; margin-top: 2.5px; margin-right: 8px;">Add New Client</a>
           </div>
-          <div class="widget-content nopadding">
+          <div class="widget-content nopadding respons-table">
             <table class="table table-bordered data-table">
               <thead>
                 <tr>

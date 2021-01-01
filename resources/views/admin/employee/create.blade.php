@@ -12,8 +12,8 @@
   </div>
   <div class="container-fluid" >
     <hr>
-    <div class="row-fluid" style="padding-left: 220px;">
-      <div class="span8">
+    <div class="row-fluid">
+      <div class="span12">
         
         
         <div class="widget-box">
@@ -70,6 +70,7 @@
                 <input type="text" class="span11" name="address" placeholder="Enter here..." />
               </div>
             </div>
+            
             <div class="control-group">
               <label class="control-label">NID/Birth Certificate No. :</label>
               <div class="controls">

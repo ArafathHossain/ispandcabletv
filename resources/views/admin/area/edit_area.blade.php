@@ -14,15 +14,15 @@
   </div>
   <div class="container-fluid" >
     <hr>
-    <div class="row-fluid" style="padding-left: 220px;">
-      <div class="span8">
+    <div class="row-fluid">
+      <div class="span12">
         
         
         <div class="widget-box">
         <div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
           <h5>Area-info</h5>
         </div>
-        <div class="widget-content nopadding">
+        <div class="widget-content nopadding respons-table">
           <form action="{{ url('admin/areas/update/'.$area->id) }}" method="post" class="form-horizontal" enctype="multipart/form-data" >    
             @csrf
             <div class="control-group">

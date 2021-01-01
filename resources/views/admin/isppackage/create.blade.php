@@ -14,8 +14,8 @@
   </div>
   <div class="container-fluid" >
     <hr>
-    <div class="row-fluid" style="padding-left: 220px;">
-      <div class="span8">
+    <div class="row-fluid">
+      <div class="span12">
         
         
         <div class="widget-box">

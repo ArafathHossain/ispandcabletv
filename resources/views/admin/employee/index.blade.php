@@ -16,9 +16,9 @@
         <div class="widget-box">
           <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
             <h5>Employee table</h5>
-            <a href="{{route('create.employee')}}" class="btn btn-success" style="float: right; margin-bottom: 20px; margin-top: 2.5px; margin-right: 8px;">Add New Emplotee</a>
+            <a href="{{route('create.employee')}}" class="btn btn-success" style="float: right; margin-bottom: 20px; margin-top: 2.5px; margin-right: 8px;">Add New Employee</a>
           </div>
-          <div class="widget-content nopadding">
+          <div class="widget-content nopadding respons-table">
             <table class="table table-bordered data-table">
               <thead>
                 <tr>

@@ -9,38 +9,35 @@
 
 <div id="content">
   <div id="content-header">
-    <div id="breadcrumb"> <a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="#" class="current">Tables</a> </div>
-    <h1>Tables</h1>
   </div>
   <div class="container-fluid">
-    <hr>
     <div class="row-fluid">
       <div class="span12">
-        
-        
-        <div class="widget-box ">
+        <div class="widget-box">
           <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
-            <h5>Data table</h5>
+            <h5>Employee Salary Transactions table</h5>
+            <a href="{{route('salary')}}" class="btn btn-success" style="float: right; margin-bottom: 20px; margin-top: 2.5px; margin-right: 8px;">Go Back</a>
           </div>
           <div class="widget-content nopadding respons-table">
-            <table class="table table-bordered data-table responsive-table">
+            <table class="table table-bordered data-table">
               <thead>
                 <tr>
-                  <th>Serial No.</th>
-                  <th>Area Code</th>
-                  <th>Area Name</th>
+                  <th>Date</th>
+                  <th>Name</th>
+                  <th>Paid Amount</th>
+                  <th>Due Amount</th>
                   <th>Action</th>
                 </tr>
               </thead>
               <tbody>
-                @foreach($area as $key=>$row)
+                @foreach($transection as $key=>$row)
                 <tr class="gradeX">
-                  <td>{{ $key +1 }}</td>
-                  <td style="text-align: center;">{{ $row->area_code }}</td>
-                  <td style="text-align: center;">{{ $row->area_name }}</td>
+                  <td style="text-align: center;">{{ $row->salary_date }}</td>
+                  <td style="text-align: center;">{{ $row->name }}</td>
+                  <td style="text-align: center;">{{ $row->amount }}</td>
+                  <td style="text-align: center;">{{ $row->due_amount }}</td>
                   <td style="text-align: center;">
-                    <a href="{{ URL::to('admin/areas/edit/'.$row->id) }} " class="btn btn-sm btn-info">Edit</a>
-                    <a href="{{ URL::to('admin/areas/delete/'.$row->id) }}" class="btn btn-sm btn-danger" id="delete">Delete</a>
+                    <a href="{{ route('invoice.payment',$row->id) }}" class="btn btn-sm btn-primary">Invoice</a>
                   </td>
                 </tr>
                 @endforeach
@@ -52,10 +49,6 @@
     </div>
   </div>
 </div>
-
-
-
-
 
 
 

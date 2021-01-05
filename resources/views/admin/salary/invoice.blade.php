@@ -34,7 +34,7 @@
                       <td>Mobile Phone: +88 01860424344</td>
                     </tr>
                     <tr>
-                      <td >hmarketing.mmit@gmail.com</td>
+                      <td >Email: hmarketing.mmit@gmail.com</td>
                     </tr>
                   </tbody>
                 </table>
@@ -73,7 +73,6 @@
                   <thead>
                     <tr>
                       <th class="head0">Type</th>
-                      <th class="head1">Desc</th>
                       <th class="head1 right">Paid Amount</th>
                       <th class="head0 right">Due Amount</th>
                     </tr>
@@ -81,7 +80,6 @@
                   <tbody>
                     <tr>
                       <td>Salary</td>
-                      <td>Ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae</td>
                       <td class="right">{{$transection->amount}}</td>
                       <td class="right"><strong>{{$transection->due_amount}}</strong></td>
                     </tr>
@@ -89,7 +87,7 @@
                 </table>
                 <div class="pull-right">
                   <br>
-                  <a class="btn btn-primary btn-large pull-right" href="">Genarate PDF</a> </div>
+                  <a class="btn btn-primary btn-large pull-right" href="{{ route('invoice.pdf',$transection->id) }}" target="blank">Genarate PDF</a> </div>
               </div>
             </div>
           </div>

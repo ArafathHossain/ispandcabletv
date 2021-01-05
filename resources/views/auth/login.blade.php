@@ -45,7 +45,7 @@
                                 </div>
                             </form>
                             <div class="footer">
-                               <p>Copyright &copy; 2020 <a href="https://easylearningbd.com/">easy Learning</a>. All rights reserved.</p>
+                               <p>Copyright &copy; 2020 <a href="#">MMIT Soft LTD.</a>. All rights reserved.</p>
                             </div>
                             
                         </div>

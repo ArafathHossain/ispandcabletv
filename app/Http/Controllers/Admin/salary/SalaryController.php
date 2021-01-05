@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\salary;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use DB;
+use PDF;
 
 class SalaryController extends Controller
 {
@@ -123,4 +124,15 @@ class SalaryController extends Controller
     	$alldue = DB::table('salaries')->where('due_amount','!=' ,0)->get();
     	return view('admin.salary.alldue',compact('alldue'));
     }
+
+     public function invoicepdf($id){
+    	$data['transection'] = DB::table('salary_transactions')
+    	->join('employees','salary_transactions.employee_id','employees.id')
+    	->select('salary_transactions.*','employees.name','employees.email','employees.address','employees.phone')
+    	->where('salary_transactions.id',$id)
+    	->first();
+    	$pdf = PDF::loadView('admin.salary.printinvoice', $data);
+		return $pdf->stream('download.pdf');
+
+}
 }

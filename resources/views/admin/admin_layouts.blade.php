@@ -107,7 +107,9 @@
       </ul>
     </li>
 
-    <li class="submenu"> <a href="#"><i class="icon-inbox"></i> <span>Products</span><span class="label label-important">2</span></a>
+     <li ><a href="{{route('site.settings')}}"><i class="icon icon-home"></i> <span>Site Settings</span></a> </li>
+
+    <!-- <li class="submenu"> <a href="#"><i class="icon-inbox"></i> <span>Products</span><span class="label label-important">2</span></a>
       <ul>
         <li><a href="">Add New</a></li>
         <li><a href="">All Products</a></li>
@@ -136,13 +138,12 @@
         <li><a href="">Monthly</a></li>
         <li><a href="">All Report</a></li>
       </ul>
-    </li>
+    </li> -->
 
 
   </ul>
 </div>
 
-<!--sidebar-menu-->
 
 @endguest
 

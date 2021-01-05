@@ -107,6 +107,16 @@ Route::prefix('admin/transactions')->group(function(){
 	Route::get('/all', 'Admin\salary\SalaryController@AllTransactions')->name('transactions.salary');
 	Route::get('/alldue', 'Admin\salary\SalaryController@alldue')->name('alldue.salary');
 	Route::get('/invoice/{id}', 'Admin\salary\SalaryController@invoice')->name('invoice.payment','$id');
+	Route::get('/invoicepdf/{id}', 'Admin\salary\SalaryController@invoicepdf')->name('invoice.pdf','$id');
 });
+
+Route::prefix('admin/site')->group(function(){
+	Route::get('/settings', 'Admin\SiteSettingsController@Edit')->name('site.settings');
+	Route::post('/store', 'Admin\SiteSettingsController@update')->name('update.settings');
+});
+
+//front-end for user
+Route::get('/profile', 'HomeController@profile')->name('profile');
+Route::post('/update/{id}', 'HomeController@Update')->name('profile.update','$id');
 
  

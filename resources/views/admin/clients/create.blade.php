@@ -65,7 +65,7 @@
             <div class="control-group">
               <label class="control-label">Gender</label>
               <div class="controls">
-                <select name="gender">
+                <select name="gender" name="gender">
                   <option value="Male">Male</option>
                   <option value="Female">Female</option>
                 </select>

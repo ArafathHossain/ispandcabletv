@@ -107,6 +107,15 @@
       </ul>
     </li>
 
+     <li class="submenu"> <a href="#"><i class="icon-group"></i> <span>Bills</span><span class="label label-important">4</span></a>
+      <ul>
+        <li><a href="{{route('index.bill')}}">Generate Bills</a></li>
+        <li><a href="{{route('all.bill')}}">All Bills</a></li>
+        <li><a href="{{route('received.bill')}}">Received Bills</a></li>
+        <li><a href="{{route('due.bill')}}">Due Bills</a></li>
+      </ul>
+    </li>
+
      <li ><a href="{{route('site.settings')}}"><i class="icon icon-home"></i> <span>Site Settings</span></a> </li>
 
     <!-- <li class="submenu"> <a href="#"><i class="icon-inbox"></i> <span>Products</span><span class="label label-important">2</span></a>

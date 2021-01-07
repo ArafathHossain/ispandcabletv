@@ -97,9 +97,8 @@ $user =  DB::table('users')->where('id',$id)->first();
                             <span class="menu-text">Payments</span>
                           </a>
                           <ul class="dashboard-menu">
-                            <li><a href="login.html">Pay Now</a></li>
-                            <li><a href="registration.html">Payment Due</a></li>
-                            <li><a href="screen_lock.html">Payment History</a></li>
+                            <li><a href="{{route('paynow')}}">All Payments</a></li>
+                            <li><a href="{{route('alldue')}}">Due Payments</a></li>
                           </ul>
                       </li>
                       <li class="single-nav-wrapper">

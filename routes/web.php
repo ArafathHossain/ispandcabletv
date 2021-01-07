@@ -81,6 +81,17 @@ Route::prefix('admin/client')->group(function(){
 	Route::get('/inactive', 'Admin\client\ClientController@leftclient')->name('inactive.clients');
 });
 
+Route::prefix('admin/bills')->group(function(){
+	Route::get('/index', 'Admin\Bills\BillController@index')->name('index.bill');
+	Route::get('/generate', 'Admin\Bills\BillController@generate')->name('generate.bill');
+	Route::get('/all', 'Admin\Bills\BillController@all')->name('all.bill');
+	Route::get('/received', 'Admin\Bills\BillController@received')->name('received.bill');
+	Route::get('/dues', 'Admin\Bills\BillController@due')->name('due.bill');
+	Route::get('/billpay/{id}', 'Admin\Bills\BillController@BillPay')->name('pay.bill','$id');
+	Route::post('/pay/{id}', 'Admin\Bills\BillController@pay')->name('paysuccess','$id');
+
+});
+
 // For Show Upazila and Thana with ajax
 Route::get('get/upazila-thana/{district_id}', 'Admin\client\ClientController@GetUpazilaThana');
 
@@ -118,5 +129,10 @@ Route::prefix('admin/site')->group(function(){
 //front-end for user
 Route::get('/profile', 'HomeController@profile')->name('profile');
 Route::post('/update/{id}', 'HomeController@Update')->name('profile.update','$id');
+//bills payment
+Route::get('/paynow', 'PaymentController@paynow')->name('paynow');
+Route::get('/alldue', 'PaymentController@alldue')->name('alldue');
+Route::get('/billpay/{id}', 'PaymentController@paydue')->name('paydue.bill','$id');
+Route::post('/pay/{id}', 'PaymentController@pay')->name('pay','$id');
 
  

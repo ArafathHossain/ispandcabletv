@@ -89,8 +89,49 @@ Route::prefix('admin/bills')->group(function(){
 	Route::get('/dues', 'Admin\Bills\BillController@due')->name('due.bill');
 	Route::get('/billpay/{id}', 'Admin\Bills\BillController@BillPay')->name('pay.bill','$id');
 	Route::post('/pay/{id}', 'Admin\Bills\BillController@pay')->name('paysuccess','$id');
+	Route::get('/invoicebill/{id}', 'Admin\Bills\BillController@invoicebill')->name('invoice.bill','$id');
 
 });
+
+//Accounts Managements Routes
+Route::prefix('admin/accounts')->group(function(){
+
+	Route::prefix('/bank')->group(function(){
+	Route::get('/index', 'Admin\accounts\AccountController@index_bank')->name('index.bank');
+	Route::get('/add', 'Admin\accounts\AccountController@addBankBalance')->name('add.bank');
+	Route::get('/withdraw', 'Admin\accounts\AccountController@withdrawBankBalance')->name('withdraw.bank');
+	Route::post('/store/balance', 'Admin\accounts\AccountController@storeBankBalance')->name('store.bankBalance');
+	Route::post('/store/widthdraw', 'Admin\accounts\AccountController@storeWithdraw')->name('store.withdraw');
+	Route::get('/invoicebank/{id}', 'Admin\accounts\AccountController@invoicebank')->name('invoice.bank','$id');
+	});
+	Route::prefix('/bkash')->group(function(){
+	Route::get('/index', 'Admin\accounts\AccountController@index_bkash')->name('index.bkash');
+	Route::get('/add', 'Admin\accounts\AccountController@addBkashBalance')->name('add.bkash');
+	Route::get('/withdraw', 'Admin\accounts\AccountController@withdrawBkashBalance')->name('withdraw.bkash');
+	Route::post('/store/balance', 'Admin\accounts\AccountController@storeBkashBalance')->name('store.bkashBalance');
+	Route::post('/store/widthdraw', 'Admin\accounts\AccountController@storeBkashWithdraw')->name('store.bkashwithdraw');
+	Route::get('/invoicebkash/{id}', 'Admin\accounts\AccountController@invoicebkash')->name('invoice.bkash','$id');
+	});
+	Route::prefix('/rocket')->group(function(){
+	Route::get('/index', 'Admin\accounts\AccountController@index_rocket')->name('index.rocket');
+	Route::get('/add', 'Admin\accounts\AccountController@addRocketBalance')->name('add.rocket');
+	Route::get('/withdraw', 'Admin\accounts\AccountController@withdrawRockethBalance')->name('withdraw.rocket');
+	Route::post('/store/balance', 'Admin\accounts\AccountController@storeRocketBalance')->name('store.rocketBalance');
+	Route::post('/store/widthdraw', 'Admin\accounts\AccountController@storeRocketWithdraw')->name('store.rocketwithdraw');
+	Route::get('/invoicerocket/{id}', 'Admin\accounts\AccountController@invoicerocket')->name('invoice.rocket','$id');
+	});
+	Route::prefix('/epay')->group(function(){
+	Route::get('/index', 'Admin\accounts\AccountController@index_epay')->name('index.epay');
+	});
+	Route::prefix('/handcash')->group(function(){
+	Route::get('/index', 'Admin\accounts\AccountController@index_handcash')->name('index.handcash');
+	});
+	Route::get('/info', 'Admin\accounts\AccountController@info')->name('account.info');
+});
+
+//Reports
+Route::get('/income/report', 'Admin\reports\ReportController@index_income')->name('index.income');
+Route::get('/expense/report', 'Admin\reports\ReportController@index_expense')->name('index.expense');
 
 // For Show Upazila and Thana with ajax
 Route::get('get/upazila-thana/{district_id}', 'Admin\client\ClientController@GetUpazilaThana');
@@ -125,6 +166,17 @@ Route::prefix('admin/site')->group(function(){
 	Route::get('/settings', 'Admin\SiteSettingsController@Edit')->name('site.settings');
 	Route::post('/store', 'Admin\SiteSettingsController@update')->name('update.settings');
 });
+
+Route::prefix('admin/payment')->group(function(){
+	Route::get('/settings', 'Admin\payments\PaymentController@Edit')->name('payment.settings');
+	Route::post('/store', 'Admin\payments\PaymentController@update')->name('update.payment');
+	Route::get('/storepay', 'Admin\payments\PaymentController@storepay')->name('pay.store');
+});
+	
+Route::post('/view_payment', 'Admin\payments\PaymentController@view')->name('payment.view');
+Route::post('/response','ShurjoPayController@response')->name('shurjopay.response');
+
+
 
 //front-end for user
 Route::get('/profile', 'HomeController@profile')->name('profile');

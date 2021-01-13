@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => '5b95fe7fc83d08737543d822ecbb63c069642164',
+    'reference' => 'be810d933d82985ba3dec79354c72fe9fa53e935',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -150,6 +150,24 @@
       array (
       ),
       'reference' => '848d8125239d7dbf8ab25cb7f054f1a630e68c2e',
+    ),
+    'guzzlehttp/guzzle' => 
+    array (
+      'pretty_version' => '7.2.0',
+      'version' => '7.2.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '0aa74dfb41ae110835923ef10a9d803a22d50e79',
+    ),
+    'guzzlehttp/promises' => 
+    array (
+      'pretty_version' => '1.4.0',
+      'version' => '1.4.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '60d379c243457e073cff02bc323a2a86cb355631',
     ),
     'guzzlehttp/psr7' => 
     array (
@@ -415,7 +433,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => '5b95fe7fc83d08737543d822ecbb63c069642164',
+      'reference' => 'be810d933d82985ba3dec79354c72fe9fa53e935',
     ),
     'laravel/tinker' => 
     array (
@@ -689,6 +707,22 @@
         0 => '1.0',
       ),
     ),
+    'psr/http-client' => 
+    array (
+      'pretty_version' => '1.0.1',
+      'version' => '1.0.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '2dfb5f6c5eff0e91e20e913f8c5452ed95b86621',
+    ),
+    'psr/http-client-implementation' => 
+    array (
+      'provided' => 
+      array (
+        0 => '1.0',
+      ),
+    ),
     'psr/http-message' => 
     array (
       'pretty_version' => '1.0.1',
@@ -890,6 +924,15 @@
       array (
       ),
       'reference' => '99732be0ddb3361e16ad77b68ba41efc8e979019',
+    ),
+    'sowrensen/laravel-shurjopay' => 
+    array (
+      'pretty_version' => 'v1.1.0',
+      'version' => '1.1.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'b097fa1f21c79cfc66ae8772650a24ec2da700a0',
     ),
     'swiftmailer/swiftmailer' => 
     array (

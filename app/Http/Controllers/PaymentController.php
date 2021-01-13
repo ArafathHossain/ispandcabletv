@@ -35,6 +35,7 @@ class PaymentController extends Controller
     	$data = array();
     	$data['amount'] = $request->amount;
     	$data['due_amount'] = 0;
+    	$data['pay_by'] = 'user';
 		DB::table('client_bills')->where('id',$id)->where('user_id',$userid)->update($data);
 		$notification = array(
 		'messege'=>'Bill Paid Successfull',

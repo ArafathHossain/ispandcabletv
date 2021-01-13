@@ -1,4 +1,9 @@
+@php
+ $site_settings = DB::table('sitesettings')->first();
+@endphp
 @extends('layouts.app')
+
+
 
 @section('content')
         <div class="wrapper without_header_sidebar">
@@ -8,7 +13,7 @@
                     <div class="login_page center_container">
                         <div class="center_content">
                             <div class="logo">
-                                <img src="{{asset('public/panel/assets/images/logo.png')}}" alt="" class="img-fluid">
+                                <img src="{{URL::to($site_settings->logo)}}" alt="" class="img-fluid" style="border-radius: 10px; object-fit: contain">
                             </div>
                             <form action="{{route('login')}}" class="d-block" method="post">
                                 @csrf
@@ -39,13 +44,12 @@
                                     </label>
                                 </div>
                                 <div class="form-group">
-                                    <a class="registration" href="{{route('register')}}">Create new account</a><br>
                                     <a href="{{ route('password.request') }}" class="text-white">I forgot my password</a>
                                     <button type="submit" class="btn btn-blue">Login</button>
                                 </div>
                             </form>
                             <div class="footer">
-                               <p>Copyright &copy; 2020 <a href="#">MMIT Soft LTD.</a>. All rights reserved.</p>
+                               <p>Copyright &copy; 2020 <a href="#">{{$site_settings->company_name}}</a>. All rights reserved.</p>
                             </div>
                             
                         </div>

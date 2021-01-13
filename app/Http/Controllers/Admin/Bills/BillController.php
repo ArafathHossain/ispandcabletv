@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\Bills;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use DB;
+use PDF;
 
 class BillController extends Controller
 {
@@ -99,7 +100,6 @@ class BillController extends Controller
     }
     public function due()
     {
-
         $allbills = DB::table('client_bills')
         ->join('users','client_bills.user_id','users.id')
     	->select('client_bills.*','users.name','users.email')
@@ -110,16 +110,28 @@ class BillController extends Controller
 
     }
 
-     public function pay(Request $request, $id){
+     public function pay(Request $request, $id)
+     {
     	$data = array();
     	$data['amount'] = $request->amount;
     	$data['due_amount'] = 0;
+    	$data['pay_by'] = 'admin';
 		DB::table('client_bills')->where('id',$id)->update($data);
 		$notification = array(
 		'messege'=>'Bill Paid Successfull',
 		'alert-type'=>'success'
 		);
-	return Redirect()->route('all.bill')->with($notification);
+		return Redirect()->route('all.bill')->with($notification);
     }
+    public function invoicebill($id)
+    {
+		$data['billinvoice'] = DB::table('client_bills')
+		->join('users','client_bills.user_id','users.id')
+		->select('client_bills.*','users.name','users.email','users.present_add','users.phone')
+		->where('client_bills.id',$id)
+		->first();
+		$pdf = PDF::loadView('admin.bills.printinvoice', $data);
+		return $pdf->stream('Bill_Invoice.pdf');
+	}
 
 }

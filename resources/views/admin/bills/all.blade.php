@@ -24,6 +24,7 @@
                   <th>Email</th>
                   <th>Year</th>
                   <th>Month</th>
+                  <th>Paid By</th>
                   <th>Amount</th>
                   <th>Status</th>
                   <th>Action</th>
@@ -63,6 +64,8 @@
                   <td style="text-align: center;">December</td>
                   @endif
 
+                  <td style="text-align: center;">{{ $row->pay_by }}</td>
+
                   @if($row->amount == 0)
                   <td style="text-align: center;">{{$row->due_amount}}</td>
                   <td style="text-align: center;">Unpaid</td>
@@ -70,7 +73,9 @@
                    @else
                   <td style="text-align: center;"> {{$row->amount}}</td>
                   <td style="text-align: center;"> Paid</td>
-                  <td style="text-align: center;"><a href="#" class="btn btn-sm btn-success disabled" ><i>Paid</i></a></td>
+                  <td style="text-align: center;">
+                    <a href="{{ route('invoice.bill',$row->id) }}" class="btn btn-sm btn-primary" target="blank"><i>Invoice PDF</i></a>
+                  </td>
                   @endif                 
                 </tr>
                 @endforeach

@@ -15,26 +15,28 @@ class SiteSettingsController extends Controller
     }
 
 
-public function Edit(){
+    public function Edit()
+    {
     	$settings = DB::table('sitesettings')->first();
     	return view('admin.sitesettings.sitesettings',compact('settings'));
     }
 
 
-    public function update(Request $request){
-    $data = array();
-    $data['company_name'] = $request->company_name;
-    $data['company_email'] = $request->company_email;
-    $data['company_phone1'] = $request->company_phone1;
-    $data['company_phone2'] = $request->company_phone2;
-    $data['company_mobile'] = $request->company_mobile;
-    $data['company_address'] = $request->company_address;
-    $data['facebook_link'] = $request->facebook_link;
-    $data['twitter_link'] = $request->twitter_link;
-    $data['pinterest_link'] = $request->pinterest_link;
-    $data['instagram_link'] = $request->instagram_link;
-    $data['linkedin_link'] = $request->linkedin_link;
-    $data['youtube_link'] = $request->youtube_link;
+    public function update(Request $request)
+    {
+      $data = array();
+      $data['company_name'] = $request->company_name;
+      $data['company_email'] = $request->company_email;
+      $data['company_phone1'] = $request->company_phone1;
+      $data['company_phone2'] = $request->company_phone2;
+      $data['company_mobile'] = $request->company_mobile;
+      $data['company_address'] = $request->company_address;
+      $data['facebook_link'] = $request->facebook_link;
+      $data['twitter_link'] = $request->twitter_link;
+      $data['pinterest_link'] = $request->pinterest_link;
+      $data['instagram_link'] = $request->instagram_link;
+      $data['linkedin_link'] = $request->linkedin_link;
+      $data['youtube_link'] = $request->youtube_link;
 
 
     $logo = $request->file('logo');

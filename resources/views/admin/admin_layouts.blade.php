@@ -90,7 +90,7 @@
       </ul>
     </li>
 
-    <li class="submenu"> <a href="#"><i class="icon-credit-card"></i> <span>Salary</span><span class="label label-important">1</span></a>
+    <li class="submenu"> <a href="#"><i class="icon-credit-card"></i> <span>Salary</span><span class="label label-important">3</span></a>
       <ul>
         <li><a href="{{route('salary')}}">Pay Salary</a></li>
         <li><a href="{{route('alldue.salary')}}">Due Salary</a></li>
@@ -107,7 +107,7 @@
       </ul>
     </li>
 
-     <li class="submenu"> <a href="#"><i class="icon-group"></i> <span>Bills</span><span class="label label-important">4</span></a>
+     <li class="submenu"> <a href="#"><i class="icon-bar-chart"></i> <span>Bills</span><span class="label label-important">4</span></a>
       <ul>
         <li><a href="{{route('index.bill')}}">Generate Bills</a></li>
         <li><a href="{{route('all.bill')}}">All Bills</a></li>
@@ -116,7 +116,42 @@
       </ul>
     </li>
 
-     <li ><a href="{{route('site.settings')}}"><i class="icon icon-home"></i> <span>Site Settings</span></a> </li>
+    <li class="submenu"> <a href="#"><i class="icon-money"></i> <span>Accounts</span><span class="label label-important">6</span></a>
+      <ul>
+        <li><a href="{{route('index.bank')}}">Bank</a></li>
+        <li><a href="{{route('index.bkash')}}">Bkash</a></li>
+        <li><a href="{{route('index.rocket')}}">Rocket</a></li>
+        <li><a href="{{route('index.epay')}}">E-Pay</a></li>
+        <li><a href="{{route('index.handcash')}}">Hand Cash</a></li>
+        <li><a href="{{route('index.handcash')}}">Expense</a></li>
+      </ul>
+    </li>
+
+    <li class="submenu"> <a href="#"><i class="icon-money"></i> <span>Reports</span><span class="label label-important">2</span></a>
+      <ul>
+        <li><a href="{{route('index.income')}}">Income</a></li>
+        <li><a href="{{route('index.expense')}}">Expense</a></li>
+      </ul>
+    </li>
+
+    <li class="submenu"> <a href="#"><i class="icon-money"></i> <span>User Role</span><span class="label label-important">2</span></a>
+      <ul>
+        <li><a href="">Add New</a></li>
+        <li><a href="">All Users</a></li>
+      </ul>
+    </li>
+
+    <li class="submenu"> <a href="#"><i class="icon-money"></i> <span>Settings</span><span class="label label-important">2</span></a>
+      <ul>
+        <li ><a href="{{route('payment.settings')}}"><span>Payment Settings</span></a> </li>
+        <li ><a href="{{route('site.settings')}}"> <span>Site Settings</span></a> </li>
+      </ul>
+    </li>
+
+
+
+     
+     
 
     <!-- <li class="submenu"> <a href="#"><i class="icon-inbox"></i> <span>Products</span><span class="label label-important">2</span></a>
       <ul>

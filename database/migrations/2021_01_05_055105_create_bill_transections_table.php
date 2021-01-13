@@ -17,6 +17,7 @@ class CreateBillTransectionsTable extends Migration
             $table->bigIncrements('id');
             $table->integer('user_id');
             $table->string('amount')->nullable();
+            $table->string('pay_by')->nullable();
             $table->string('due_amount')->nullable();
             $table->string('pay_date')->nullable();
             $table->string('pay_month')->nullable();
